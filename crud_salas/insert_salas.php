@@ -1,16 +1,15 @@
 <?php
     include('connection.php');
+
     $con = connection();
 
-    $id = $_POST['id'];
+    $id = null;    
     $numeroSala = $_POST['numeroSala'];
     $capacidad = $_POST['capacidad'];
-
-    $sql = "UPDATE salas SET nombre_sala = '$numeroSala', capacidad = '$capacidad' WHERE id_sala = '$id'";
+    $sql = "INSERT INTO salas_crud_php VALUES('$id', '$numeroSala', '$capacidad',)";
     $query = mysqli_query($con, $sql);
 
     if($query){
         Header("Location: index.php");
-    };
-
+    }
 ?>

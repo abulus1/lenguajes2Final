@@ -6,7 +6,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM salas WHERE id_sala = '$id'";
+    $sql = "DELETE FROM salas_crud_php WHERE id_sala = '$id'";
     
     $query = mysqli_query($con, $sql);
 

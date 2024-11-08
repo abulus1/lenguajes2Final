@@ -5,7 +5,7 @@ function connection(){
     $user = "root";
     $pass = "";
 
-    $bd = "clientes_crud_php";
+    $bd = "gestor_cine_db";
 
     $connect = mysqli_connect($host, $user, $pass);
 

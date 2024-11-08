@@ -9,7 +9,7 @@
     $telefono = $_POST['telefono'];
     $fechaRegistro = $_POST['fechaRegistro'];  
 
-    $sql = "INSERT INTO clientes VALUES('$id', '$nombre', '$email', '$telefono', '$fechaRegistro')";
+    $sql = "INSERT INTO clientes_crud_php VALUES('$id', '$nombre', '$email', '$telefono', '$fechaRegistro')";
     $query = mysqli_query($con, $sql);
 
     if($query){

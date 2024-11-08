@@ -11,7 +11,7 @@
     $duracion = $_POST['duracion'];
     $clasificacion = $_POST['clasificacion'];    
 
-    $sql = "INSERT INTO peliculas VALUES('$id', '$titulo', '$descripcion', '$director', '$genero', '$duracion', '$clasificacion')";
+    $sql = "INSERT INTO peliculas_crud_php VALUES('$id', '$titulo', '$descripcion', '$director', '$genero', '$duracion', '$clasificacion')";
     $query = mysqli_query($con, $sql);
 
     if($query){

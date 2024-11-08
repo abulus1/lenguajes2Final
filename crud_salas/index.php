@@ -3,7 +3,7 @@
 
     $con = connection();
 
-    $sql = "SELECT * FROM salas";
+    $sql = "SELECT * FROM salas_crud_php";
 
     $query = mysqli_query($con, $sql);
 
@@ -18,7 +18,7 @@
 </head>
 <body>
     <div>
-        <form action="insert_film.php" method="POST">
+        <form action="insert_salas.php" method="POST">
             <h1>Crear salas</h1>
 
             <input type="text" name="numeroSala" placeholder="Numero de sala">
@@ -49,7 +49,7 @@
                     <th> <?= $row['nombre_sala'] ?></th>
                     <th> <?= $row['capacidad'] ?></th>
                     <th><a href="update.php?id=<?= $row['id_sala'] ?>">Editar</a></th>
-                    <th><a href="delete_film.php?id=<?= $row['id_sala'] ?>">Eliminar</a></th>
+                    <th><a href="delete_salas.php?id=<?= $row['id_sala'] ?>">Eliminar</a></th>
                 </tr>
                 <?php endwhile; ?>
             </tbody>    

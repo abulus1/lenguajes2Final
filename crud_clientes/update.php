@@ -4,7 +4,7 @@ $con = connection();
 
 $id = $_GET['id'];
 
-$sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
+$sql = "SELECT * FROM clientes_crud_php WHERE id_cliente = '$id'";
 $query = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($query);
 
@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($query);
 </head>
 <body>
     <div>
-        <form action="edit_film.php" method="POST">
+        <form action="edit_cliente.php" method="POST">
             <h1>Editar clientes</h1>
             <input type="hidden" name="id" value="<?php echo $row['id_cliente'] ?>">
             <input type="text" name="nombre" placeholder="NOMBRE" value="<?php echo $row['nombre'] ?>">

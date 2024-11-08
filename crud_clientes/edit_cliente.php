@@ -8,7 +8,7 @@
     $telefono = $_POST['telefono'];
     $fechaRegistro = $_POST['fechaRegistro'];
 
-    $sql = "UPDATE clientes SET nombre = '$nombre', email = '$email', telefono = '$telefono', fechaRegistro = '$fechaRegistro' WHERE id_client = '$id'";
+    $sql = "UPDATE clientes_crud_php SET nombre = '$nombre', email = '$email', telefono = '$telefono', fechaRegistro = '$fechaRegistro' WHERE id_client = '$id'";
     $query = mysqli_query($con, $sql);
 
     if($query){

@@ -3,7 +3,7 @@
 
     $con = connection();
 
-    $sql = "SELECT * FROM clientes";
+    $sql = "SELECT * FROM clientes_crud_php";
 
     $query = mysqli_query($con, $sql);
 
@@ -18,7 +18,7 @@
 </head>
 <body>
     <div>
-        <form action="insert_film.php" method="POST">
+        <form action="insert_cliente.php" method="POST">
             <h1>Crear clientes</h1>
 
             <input type="text" name="nombre" placeholder="Nombre">
@@ -56,7 +56,7 @@
                     <th> <?= $row['fecha_registro'] ?></th>
                     
                     <th><a href="update.php?id=<?= $row['id_cliente'] ?>">Editar</a></th>
-                    <th><a href="delete_film.php?id=<?= $row['id_cliente'] ?>">Eliminar</a></th>
+                    <th><a href="delete_cliente.php?id=<?= $row['id_cliente'] ?>">Eliminar</a></th>
                 </tr>
                 <?php endwhile; ?>
             </tbody>    

@@ -3,7 +3,7 @@
 
     $con = connection();
 
-    $sql = "SELECT * FROM peliculas";
+    $sql = "SELECT * FROM peliculas_crud_php";
 
     $query = mysqli_query($con, $sql);
 

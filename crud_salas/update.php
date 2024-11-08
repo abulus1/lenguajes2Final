@@ -4,7 +4,7 @@ $con = connection();
 
 $id = $_GET['id'];
 
-$sql = "SELECT * FROM salas WHERE id_sala = '$id'";
+$sql = "SELECT * FROM salas_crud_php WHERE id_sala = '$id'";
 $query = mysqli_query($con, $sql);
 $row = mysqli_fetch_array($query);
 
@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($query);
 </head>
 <body>
     <div>
-        <form action="edit_film.php" method="POST">
+        <form action="edit_salas.php" method="POST">
             <h1>Editar sala</h1>
             <input type="hidden" name="id" value="<?php echo $row['id_sala'] ?>">
             <input type="text" name="numeroSala" placeholder="NUMERO DE SALA" value="<?php echo $row['nombre_sala'] ?>">
