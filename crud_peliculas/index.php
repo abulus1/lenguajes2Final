@@ -27,6 +27,7 @@
             <input type="text" name="genero" placeholder="Genero">
             <input type="text" name="duracion" placeholder="Duracion">
             <input type="text" name="clasificacion" placeholder="Clasificacion">
+            <input type="text" name="imagen" placeholder="URL Imagen">
 
             <input type="submit" value="Agregar pelicula">
         </form>
@@ -44,6 +45,7 @@
                     <th>Genero</th>
                     <th>Duracion</th>
                     <th>Clasificacion</th>
+                    <th>Imagen</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -60,6 +62,7 @@
                     <th> <?= $row['genero'] ?></th>
                     <th> <?= $row['duracion'] ?></th>
                     <th> <?= $row['clasificacion'] ?></th>
+                    <th><img src="<?= $row['imagen'] ?>" width="50" height="50" alt=""></th>
                     
                     <th><a href="update.php?id=<?= $row['id_pelicula'] ?>">Editar</a></th>
                     <th><a href="delete_film.php?id=<?= $row['id_pelicula'] ?>">Eliminar</a></th>

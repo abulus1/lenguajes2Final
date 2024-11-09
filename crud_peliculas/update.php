@@ -28,6 +28,7 @@ $row = mysqli_fetch_array($query);
             <input type="text" name="genero" placeholder="GENERO" value="<?php echo $row['genero'] ?>">
             <input type="text" name="duracion" placeholder="DURACION" value="<?php echo $row['duracion'] ?>">
             <input type="text" name="clasificacion" placeholder="CLASIFICACION" value="<?php echo $row['clasificacion'] ?>">
+            <input type="text" name="imagen" placeholder="IMAGEN" value="<?php echo $row['imagen'] ?>">
             <input type="submit" value="Actualizar">
         </form>
     </div>
