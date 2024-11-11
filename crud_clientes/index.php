@@ -24,7 +24,6 @@
             <input type="text" name="nombre" placeholder="Nombre">
             <input type="text" name="email" placeholder="Email">
             <input type="text" name="telefono" placeholder="Telefono">
-            <input type="text" name="fechaRegistro" placeholder="Fecha de Registro">
 
             <input type="submit" value="Agregar cliente">
         </form>

@@ -25,7 +25,6 @@ $row = mysqli_fetch_array($query);
             <input type="text" name="nombre" placeholder="NOMBRE" value="<?php echo $row['nombre'] ?>">
             <input type="text" name="email" placeholder="EMAIL" value="<?php echo $row['email'] ?>">
             <input type="text" name="telefono" placeholder="TELEFONO" value="<?php echo $row['telefono'] ?>">
-            <input type="text" name="fechaRegistro" placeholder="fechaRegistro" value="<?php echo $row['fechaRegistro'] ?>">
             <input type="submit" value="Actualizar">
         </form>
     </div>
