@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2024 a las 03:35:57
+-- Tiempo de generación: 11-11-2024 a las 01:10:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,6 +49,37 @@ INSERT INTO `clientes_crud_php` (`id_cliente`, `nombre`, `email`, `telefono`, `f
 (7, 'Pedro Díaz', 'pedro.diaz@example.com', '7890123456', '2024-11-07'),
 (8, 'Laura Fernández', 'laura.fernandez@example.com', '8901234567', '2024-11-07'),
 (9, 'Miguel Castillo', 'miguel.castillo@example.com', '9012345678', '2024-11-07');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `funciones_crud_php`
+--
+
+CREATE TABLE `funciones_crud_php` (
+  `id_funcion` int(11) NOT NULL,
+  `id_pelicula` int(11) NOT NULL,
+  `id_sala` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `tipo_funcion` enum('2D','3D','TURBO') DEFAULT NULL,
+  `idioma` enum('CAST','SUB') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `funciones_crud_php`
+--
+
+INSERT INTO `funciones_crud_php` (`id_funcion`, `id_pelicula`, `id_sala`, `fecha`, `hora`, `tipo_funcion`, `idioma`) VALUES
+(44, 2, 2, '2024-11-10', '20:00:00', '3D', 'SUB'),
+(45, 3, 3, '2024-11-11', '15:00:00', '2D', 'SUB'),
+(46, 4, 1, '2024-11-11', '21:30:00', 'TURBO', 'CAST'),
+(47, 5, 2, '2024-11-12', '17:00:00', '2D', 'SUB'),
+(48, 6, 3, '2024-11-12', '19:45:00', '3D', 'CAST'),
+(49, 6, 1, '2024-11-13', '14:30:00', 'TURBO', 'SUB'),
+(50, 8, 2, '2024-11-13', '22:00:00', '2D', 'CAST'),
+(53, 2, 2, '2024-11-15', '20:46:00', '3D', 'CAST'),
+(55, 1, 4, '2024-11-11', '23:01:00', 'TURBO', 'CAST');
 
 -- --------------------------------------------------------
 
@@ -119,6 +150,14 @@ ALTER TABLE `clientes_crud_php`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indices de la tabla `funciones_crud_php`
+--
+ALTER TABLE `funciones_crud_php`
+  ADD PRIMARY KEY (`id_funcion`),
+  ADD KEY `id_pelicula` (`id_pelicula`),
+  ADD KEY `id_sala` (`id_sala`);
+
+--
 -- Indices de la tabla `peliculas_crud_php`
 --
 ALTER TABLE `peliculas_crud_php`
@@ -141,16 +180,33 @@ ALTER TABLE `clientes_crud_php`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT de la tabla `funciones_crud_php`
+--
+ALTER TABLE `funciones_crud_php`
+  MODIFY `id_funcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
 -- AUTO_INCREMENT de la tabla `peliculas_crud_php`
 --
 ALTER TABLE `peliculas_crud_php`
-  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `salas_crud_php`
 --
 ALTER TABLE `salas_crud_php`
   MODIFY `id_sala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `funciones_crud_php`
+--
+ALTER TABLE `funciones_crud_php`
+  ADD CONSTRAINT `funciones_crud_php_ibfk_1` FOREIGN KEY (`id_pelicula`) REFERENCES `peliculas_crud_php` (`id_pelicula`),
+  ADD CONSTRAINT `funciones_crud_php_ibfk_2` FOREIGN KEY (`id_sala`) REFERENCES `salas_crud_php` (`id_sala`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
