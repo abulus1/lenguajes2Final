@@ -1,50 +1,48 @@
 <?php
-    include('connection.php');
+include('Pelicula.php');
 
-    $con = connection();
-
-    $sql = "SELECT * FROM peliculas_crud_php";
-
-    $query = mysqli_query($con, $sql);
-
+$pelicula = new Pelicula();
+$peliculas = $pelicula->obtenerTodasLasPeliculas();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud peliculas</title>
+    <title>Crud Películas</title>
 </head>
+
 <body>
     <div>
-        <form action="insert_film.php" method="POST">
-            <h1>Crear peliculas</h1>
+        <form action="create-film.php" method="POST">
+            <h1>Crear Película</h1>
 
-            <input type="text" name="titulo" placeholder="Titulo">
-            <input type="text" name="descripcion" placeholder="Descripcion">
+            <input type="text" name="titulo" placeholder="Título">
+            <input type="text" name="descripcion" placeholder="Descripción">
             <input type="text" name="director" placeholder="Director">
-            <input type="text" name="genero" placeholder="Genero">
-            <input type="text" name="duracion" placeholder="Duracion">
-            <input type="text" name="clasificacion" placeholder="Clasificacion">
+            <input type="text" name="genero" placeholder="Género">
+            <input type="text" name="duracion" placeholder="Duración">
+            <input type="text" name="clasificacion" placeholder="Clasificación">
             <input type="text" name="imagen" placeholder="URL Imagen">
 
-            <input type="submit" value="Agregar pelicula">
+            <input type="submit" value="Agregar Película">
         </form>
     </div>
 
     <div>
-        <h2>Peliculas registradas</h2>
+        <h2>Películas Registradas</h2>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
                     <th>Director</th>
-                    <th>Genero</th>
-                    <th>Duracion</th>
-                    <th>Clasificacion</th>
+                    <th>Género</th>
+                    <th>Duración</th>
+                    <th>Clasificación</th>
                     <th>Imagen</th>
                     <th></th>
                     <th></th>
@@ -52,24 +50,23 @@
             </thead>
 
             <tbody>
-                <?php while($row = mysqli_fetch_array($query)): ?>
-                <tr>
-
-                    <th> <?= $row['id_pelicula'] ?></th>
-                    <th> <?= $row['titulo'] ?></th>
-                    <th> <?= $row['descripcion'] ?></th>
-                    <th> <?= $row['director'] ?></th>
-                    <th> <?= $row['genero'] ?></th>
-                    <th> <?= $row['duracion'] ?></th>
-                    <th> <?= $row['clasificacion'] ?></th>
-                    <th><img src="<?= $row['imagen'] ?>" width="50" height="50" alt=""></th>
-                    
-                    <th><a href="update.php?id=<?= $row['id_pelicula'] ?>">Editar</a></th>
-                    <th><a href="delete_film.php?id=<?= $row['id_pelicula'] ?>">Eliminar</a></th>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>    
+                <?php foreach ($peliculas as $row): ?>
+                    <tr>
+                        <td><?= $row['id_pelicula'] ?></td>
+                        <td><?= $row['titulo'] ?></td>
+                        <td><?= $row['descripcion'] ?></td>
+                        <td><?= $row['director'] ?></td>
+                        <td><?= $row['genero'] ?></td>
+                        <td><?= $row['duracion'] ?></td>
+                        <td><?= $row['clasificacion'] ?></td>
+                        <td><img src="<?= $row['imagen'] ?>" width="50" height="50" alt=""></td>
+                        <td><a href="update.php?id=<?= $row['id_pelicula'] ?>">Editar</a></td>
+                        <td><a href="delete_film.php?id=<?= $row['id_pelicula'] ?>">Eliminar</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 </body>
+
 </html>

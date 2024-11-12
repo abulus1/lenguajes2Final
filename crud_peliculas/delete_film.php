@@ -1,18 +1,11 @@
 <?php
+include('Pelicula.php');
 
-    include('connection.php');
+$id = $_GET['id'];
+$pelicula = new Pelicula();
 
-    $con = connection();
-
-    $id = $_GET['id'];
-
-    $sql = "DELETE FROM peliculas_crud_php WHERE id_pelicula = '$id'";
-    
-    $query = mysqli_query($con, $sql);
-
-    if($query){
-        Header("Location: index.php");
-    }
-
-
-?>
+if ($pelicula->eliminarPelicula($id)) {
+    header("Location: index.php");
+} else {
+    echo "Error al eliminar la película";
+}
