@@ -1,12 +1,8 @@
 <?php
-    include('connection.php');
+include('Sala.php');
 
-    $con = connection();
-
-    $sql = "SELECT * FROM salas_crud_php";
-
-    $query = mysqli_query($con, $sql);
-
+$sala = new Sala();
+$salas = $sala->obtenerTodasLasSalas();
 ?>
 
 <!DOCTYPE html>
@@ -14,45 +10,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud salas</title>
+    <title>CRUD Salas</title>
 </head>
 <body>
     <div>
-        <form action="insert_salas.php" method="POST">
-            <h1>Crear salas</h1>
-
-            <input type="text" name="numeroSala" placeholder="Numero de sala">
-            <input type="text" name="capacidad" placeholder="Capacidad">
-
-            <input type="submit" value="Agregar pelicula">
+        <form action="create_sala.php" method="POST">
+            <h1>Crear Sala</h1>
+            <input type="text" name="nombre_sala" placeholder="Nombre Sala">
+            <input type="number" name="capacidad" placeholder="Capacidad">
+            <input type="submit" value="Agregar Sala">
         </form>
     </div>
 
     <div>
-        <h2>Salas registradas</h2>
+        <h2>Salas Registradas</h2>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>numeroSala</th>
+                    <th>ID Sala</th>
+                    <th>Nombre Sala</th>
                     <th>Capacidad</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
-
             <tbody>
-                <?php while($row = mysqli_fetch_array($query)): ?>
-                <tr>
-
-                    <th> <?= $row['id_sala'] ?></th>
-                    <th> <?= $row['nombre_sala'] ?></th>
-                    <th> <?= $row['capacidad'] ?></th>
-                    <th><a href="update.php?id=<?= $row['id_sala'] ?>">Editar</a></th>
-                    <th><a href="delete_salas.php?id=<?= $row['id_sala'] ?>">Eliminar</a></th>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>    
+                <?php foreach ($salas as $row): ?>
+                    <tr>
+                        <td><?= $row['id_sala'] ?></td>
+                        <td><?= $row['nombre_sala'] ?></td>
+                        <td><?= $row['capacidad'] ?></td>
+                        <td><a href="update_sala.php?id=<?= $row['id_sala'] ?>">Editar</a></td>
+                        <td><a href="delete_sala.php?id=<?= $row['id_sala'] ?>">Eliminar</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 </body>

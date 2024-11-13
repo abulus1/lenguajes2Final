@@ -1,18 +1,12 @@
 <?php
+include('Cliente.php');
 
-    include('connection.php');
+$id = $_GET['id'];
+$cliente = new Cliente();
 
-    $con = connection();
-
-    $id = $_GET['id'];
-
-    $sql = "DELETE FROM clientes_crud_php WHERE id_cliente = '$id'";
-    
-    $query = mysqli_query($con, $sql);
-
-    if($query){
-        Header("Location: index.php");
-    }
-
-
+if ($cliente->eliminarCliente($id)) {
+    header("Location: index.php");
+} else {
+    echo "Error al eliminar el cliente";
+}
 ?>

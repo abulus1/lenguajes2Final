@@ -1,13 +1,9 @@
 <?php
-include('connection.php');
-$con = connection();
+include('Pelicula.php');
 
 $id = $_GET['id'];
-
-$sql = "SELECT * FROM peliculas_crud_php WHERE id_pelicula = '$id'";
-$query = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($query);
-
+$pelicula = new Pelicula();
+$row = $pelicula->obtenerPeliculaPorId($id);
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +11,12 @@ $row = mysqli_fetch_array($query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Película</title>
 </head>
 <body>
     <div>
         <form action="edit_film.php" method="POST">
-            <h1>Editar pelicula</h1>
+            <h1>Editar Película</h1>
             <input type="hidden" name="id" value="<?php echo $row['id_pelicula'] ?>">
             <input type="text" name="titulo" placeholder="TITULO" value="<?php echo $row['titulo'] ?>">
             <input type="text" name="descripcion" placeholder="DESCRIPCION" value="<?php echo $row['descripcion'] ?>">
