@@ -1,17 +1,14 @@
 <?php
-    include('connection.php');
-    $con = connection();
+include('Cliente.php');
 
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
+$id = $_POST['id'];
+$nombre = $_POST['nombre'];
+$email = $_POST['email'];
+$telefono = $_POST['telefono'];
 
-    $sql = "UPDATE clientes_crud_php SET nombre = '$nombre', email = '$email', telefono = '$telefono' WHERE id_cliente = '$id'";
-    $query = mysqli_query($con, $sql);
-
-    if($query){
-        Header("Location: index.php");
-    };
-
-?>
+$cliente = new Cliente();
+if ($cliente->actualizarCliente($id, $nombre, $email, $telefono)) {
+  header("Location: index.php");
+} else {
+  echo "Error al actualizar el cliente";
+}

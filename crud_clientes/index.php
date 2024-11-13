@@ -1,12 +1,8 @@
 <?php
-    include('connection.php');
+include('Cliente.php');
 
-    $con = connection();
-
-    $sql = "SELECT * FROM clientes_crud_php";
-
-    $query = mysqli_query($con, $sql);
-
+$cliente = new Cliente();
+$clientes = $cliente->obtenerTodosLosClientes();
 ?>
 
 <!DOCTYPE html>
@@ -14,51 +10,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud clientes</title>
+    <title>CRUD Clientes</title>
 </head>
 <body>
     <div>
-        <form action="insert_cliente.php" method="POST">
-            <h1>Crear clientes</h1>
-
+        <form action="create_cliente.php" method="POST">
+            <h1>Crear Cliente</h1>
             <input type="text" name="nombre" placeholder="Nombre">
-            <input type="text" name="email" placeholder="Email">
-            <input type="text" name="telefono" placeholder="Telefono">
-
-            <input type="submit" value="Agregar cliente">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="telefono" placeholder="Teléfono">
+            <input type="submit" value="Agregar Cliente">
         </form>
     </div>
 
     <div>
-        <h2>Clientes registrados</h2>
+        <h2>Clientes Registrados</h2>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Fecha de registro</th>
+                    <th>Teléfono</th>
+                    <th>Fecha Registro</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
-
             <tbody>
-                <?php while($row = mysqli_fetch_array($query)): ?>
-                <tr>
-
-                    <th> <?= $row['id_cliente'] ?></th>
-                    <th> <?= $row['nombre'] ?></th>
-                    <th> <?= $row['email'] ?></th>
-                    <th> <?= $row['telefono'] ?></th>
-                    <th> <?= $row['fecha_registro'] ?></th>
-                    
-                    <th><a href="update.php?id=<?= $row['id_cliente'] ?>">Editar</a></th>
-                    <th><a href="delete_cliente.php?id=<?= $row['id_cliente'] ?>">Eliminar</a></th>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>    
+                <?php foreach ($clientes as $row): ?>
+                    <tr>
+                        <td><?= $row['id_cliente'] ?></td>
+                        <td><?= $row['nombre'] ?></td>
+                        <td><?= $row['email'] ?></td>
+                        <td><?= $row['telefono'] ?></td>
+                        <td><?= $row['fecha_registro'] ?></td>
+                        <td><a href="update_cliente.php?id=<?= $row['id_cliente'] ?>">Editar</a></td>
+                        <td><a href="delete_cliente.php?id=<?= $row['id_cliente'] ?>">Eliminar</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 </body>
