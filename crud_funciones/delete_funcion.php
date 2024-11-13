@@ -1,16 +1,12 @@
 <?php
+include('Funcion.php');
 
-    include('connection.php');
+$id = $_GET['id'];
+$funcion = new Funcion();
 
-    $con = connection();
-
-    $id = $_GET['id'];
-
-    $sql = "DELETE FROM funciones_crud_php WHERE id_funcion = '$id'";
-    
-    $query = mysqli_query($con, $sql);
-
-    if($query){
-        Header("Location: index.php");
-    }
+if ($funcion->eliminarFuncion($id)) {
+    header("Location: index_funcion.php");
+} else {
+    echo "Error: No se puede eliminar la función porque tiene entradas asociadas.";
+}
 ?>
