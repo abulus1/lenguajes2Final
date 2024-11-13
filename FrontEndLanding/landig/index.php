@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Cyborg - Awesome HTML5 Template</title>
+    <title>Cyborg - CINEMA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,25 +51,16 @@ https://templatemo.com/tm-579-cyborg-gaming
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="browse.html">Browse</a></li>
-                        <li><a href="details.html">Details</a></li>
-                        <li><a href="streams.html">Streams</a></li>
-                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
+                        <li><a href="index.php" class="active">Home</a></li>
+                        <li><a href="#most-popular">Cartelera</a></li>
+                        <li><a href="#gaming-library">Funciones</a></li>
+                        <li><a href="profile.php" class="active">Iniciar sesion</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -92,10 +83,10 @@ https://templatemo.com/tm-579-cyborg-gaming
             <div class="row">
               <div class="col-lg-7">
                 <div class="header-text">
-                  <h6>Welcome To Cyborg</h6>
-                  <h4><em>Browse</em> Our Popular Games Here</h4>
+                  <h6>Bienvenido a Cyborg</h6>
+                  <h4><em>Disfruta</em> tus mejores estrenos acá</h4>
                   <div class="main-button">
-                    <a href="browse.html">Browse Now</a>
+                    <a href="browse.html">Iniciar sesion</a>
                   </div>
                 </div>
               </div>
@@ -104,7 +95,7 @@ https://templatemo.com/tm-579-cyborg-gaming
           <!-- ***** Banner End ***** -->
 
           <!-- ***** Most Popular Start ***** -->
-          <div class="most-popular">
+          <div class="most-popular" id="most-popular">
             <div class="row">
               <div class="col-lg-12">
                 <div class="heading-section">
@@ -209,7 +200,7 @@ https://templatemo.com/tm-579-cyborg-gaming
           <!-- ***** Most Popular End ***** -->
 
           <!-- ***** Gaming Library Start ***** -->
-          <div class="gaming-library">
+          <div class="gaming-library" id="gaming-library">
             <div class="col-lg-12">
               <div class="heading-section">
                 <h4><em>Your Gaming</em> Library</h4>

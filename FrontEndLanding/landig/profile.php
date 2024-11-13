@@ -186,7 +186,7 @@ https://templatemo.com/tm-579-cyborg-gaming
           <!-- ***** Banner End ***** -->
 
           <!-- ***** Gaming Library Start ***** -->
-          <div class="gaming-library profile-library">
+          <div class="funciones_section profile-library">
             <div class="col-lg-12">
               <div class="heading-section">
                 <h4><em>Your Gaming</em> Library</h4>
