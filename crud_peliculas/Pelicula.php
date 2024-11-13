@@ -1,5 +1,5 @@
 <?php
-include('../Database.php');
+include_once('/xampp/htdocs/FinalLenguajes/lenguajes2Final/Database.php');
 
 class Pelicula
 {
