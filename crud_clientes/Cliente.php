@@ -1,5 +1,5 @@
 <?php
-include('../Database.php');
+require_once dirname(__FILE__) . '/../Database.php';
 
 class Cliente
 {

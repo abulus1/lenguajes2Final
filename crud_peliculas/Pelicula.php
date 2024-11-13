@@ -1,5 +1,5 @@
 <?php
-include_once('/xampp/htdocs/FinalLenguajes/lenguajes2Final/Database.php');
+require_once dirname(__FILE__) . '/../Database.php';
 
 class Pelicula
 {
