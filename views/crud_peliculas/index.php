@@ -85,13 +85,13 @@ $peliculas = $pelicula->obtenerTodasLasPeliculas();
                 <tbody>
                     <?php foreach ($peliculas as $row): ?>
                         <tr>
-                            <td><?= $row['id_pelicula'] ?></td>
-                            <td><?= $row['titulo'] ?></td>
-                            <td><?= $row['descripcion'] ?></td>
-                            <td><?= $row['director'] ?></td>
-                            <td><?= $row['genero'] ?></td>
-                            <td><?= $row['duracion'] ?></td>
-                            <td><?= $row['clasificacion'] ?></td>
+                            <td class="text-white"><?= $row['id_pelicula'] ?></td>
+                            <td class="text-white"><?= $row['titulo'] ?></td>
+                            <td class="text-white"><?= $row['descripcion'] ?></td>
+                            <td class="text-white"><?= $row['director'] ?></td>
+                            <td class="text-white"><?= $row['genero'] ?></td>
+                            <td class="text-white"><?= $row['duracion'] ?></td>
+                            <td class="text-white"><?= $row['clasificacion'] ?></td>
                             <td class="d-flex justify-content-center align-items-center"><img class="w-100" src="<?= $row['imagen'] ?>" alt="Imagen de la película"></td>
                             <td><a href="update.php?id=<?= $row['id_pelicula'] ?>" class="btn btn-warning btn-sm">Editar</a></td>
                             <td><a href="delete_film.php?id=<?= $row['id_pelicula'] ?>" class="btn btn-danger btn-sm">Eliminar</a></td>
