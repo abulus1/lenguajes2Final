@@ -1,2 +1,6 @@
-﻿# lenguajes2Final
-https://github.com/SALM-Code/CRUD-usuarios-php
+﻿# Examen final de Lenguajes de Programación
+
+# Integrantes:
+  - Fernandez Agustín
+  - Funes Gabriel
+  - Sanchez Agustín
