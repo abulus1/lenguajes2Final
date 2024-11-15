@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/../../config.php';
-session_start();
+include_once dirname(__FILE__) . '/../../session.php';
 
 // Destruir todas las sesiones
 session_unset();

@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/../config.php';
-session_start();
+include_once dirname(__FILE__) . '/../session.php';
+
 ?>
 <header class="header-area position-relative">
   <div class="container">
@@ -17,7 +18,9 @@ session_start();
             <li><a href="<?= BASE_URL ?>index.php" class="active">Home</a></li>
             <li><a href="<?= BASE_URL ?>#most-popular">Cartelera</a></li>
             <li><a href="<?= BASE_URL ?>#gaming-library">Funciones</a></li>
-            <?php if (isset($_SESSION['user_id'])): ?>
+
+            <?php if (isset($_SESSION['email'])): ?>
+              <!-- Mostrar mensaje de sesión activa -->
               <li><a href="<?= BASE_URL ?>views/login_register/logout.php">Cerrar sesión</a></li>
             <?php else: ?>
               <li><a href="<?= BASE_URL ?>views/login_register/index.php" class="active">Iniciar sesión</a></li>

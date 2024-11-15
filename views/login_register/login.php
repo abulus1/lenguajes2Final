@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/../../Database.php';
 require_once dirname(__FILE__) . '/../../config.php';
+include_once dirname(__FILE__) . '/../../session.php';
 require_once 'User.php';
 
 $db = new Database();
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if ($loggedInUser) {
     session_start();
-    $_SESSION['user_id'] = $loggedInUser['id'];
+    $_SESSION['email'] = $loggedInUser['email'];
     $_SESSION['username'] = $loggedInUser['username'];
     header('Location: ' . BASE_URL);
     exit;
