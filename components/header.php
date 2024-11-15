@@ -1,7 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/../config.php';
 include_once dirname(__FILE__) . '/../session.php';
-
 ?>
 <header class="header-area position-relative">
   <div class="container">
@@ -20,9 +19,16 @@ include_once dirname(__FILE__) . '/../session.php';
             <li><a href="<?= BASE_URL ?>#gaming-library">Funciones</a></li>
 
             <?php if (isset($_SESSION['email'])): ?>
-              <!-- Mostrar mensaje de sesión activa -->
-              <li><a href="<?= BASE_URL ?>views/login_register/logout.php">Cerrar sesión</a></li>
+              <!-- Opciones exclusivas para usuarios logueados -->
+              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_peliculas/index.php">Peliculas</a></li>
+              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_funciones/index.php">Funciones</a></li>
+              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_clientes/index.php">Clientes</a></li>
+              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_salas/index.php">Salas</a></li>
+              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_entradas/index.php">Entradas</a></li>
+              <!-- Botón de cerrar sesión -->
+              <li class="logout-option"><a href="<?= BASE_URL ?>views/login_register/logout.php">Cerrar sesión</a></li>
             <?php else: ?>
+              <!-- Opción de inicio de sesión para usuarios no logueados -->
               <li><a href="<?= BASE_URL ?>views/login_register/index.php" class="active">Iniciar sesión</a></li>
             <?php endif; ?>
           </ul>

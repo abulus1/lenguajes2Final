@@ -2,11 +2,10 @@
 
 // MANEJO DE SESION
 session_start();
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['email'])) {
     header('Location: index.html');
     exit;
 }
-echo "¡Bienvenido, " . $_SESSION['username'] . "!";
 
 
 include('Pelicula.php');

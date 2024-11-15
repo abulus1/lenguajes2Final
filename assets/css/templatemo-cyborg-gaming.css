@@ -41,6 +41,36 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+.header-area .main-nav .nav {
+  flex-basis: 100% !important;
+}
+.logout-option {
+  margin-top: 15px;
+}
+.logout-option a {
+  color: white !important;
+}
+
+.admin-option {
+  background-color: #e75e8d;
+  border-radius: 20px;
+  margin: 0px 5px;
+  transition: none;
+}
+
+.admin-option:hover {
+  background-color: white;
+}
+
+.admin-option a{
+  color: #fff !important;
+  transition: none;
+
+}
+.admin-option a:hover{
+  color: black !important;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
