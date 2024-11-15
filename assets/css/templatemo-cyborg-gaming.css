@@ -44,9 +44,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
 .header-area .main-nav .nav {
   flex-basis: 100% !important;
 }
-.logout-option {
-  margin-top: 15px;
-}
+
 .logout-option a {
   color: white !important;
 }

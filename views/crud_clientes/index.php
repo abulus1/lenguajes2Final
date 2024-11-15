@@ -59,6 +59,7 @@ $clientes = $cliente->obtenerTodosLosClientes();
                             <th>Email</th>
                             <th>Teléfono</th>
                             <th>Fecha Registro</th>
+                            <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +71,7 @@ $clientes = $cliente->obtenerTodosLosClientes();
                                 <td class="text-white"><?= $row['telefono'] ?></td>
                                 <td class="text-white"><?= $row['fecha_registro'] ?></td>
                                 <td><a href="update_cliente.php?id=<?= $row['id_cliente'] ?>" class="btn btn-warning btn-sm">Editar</a></td>
-                                <td><a href="delete_cliente.php?id=<?= $row['id_cliente'] ?>" class="btn btn-warning btn-sm">Eliminar</a></td>
+                                <td><a href="delete_cliente.php?id=<?= $row['id_cliente'] ?>" class="btn btn-danger btn-sm">Eliminar</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

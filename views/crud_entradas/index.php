@@ -43,7 +43,7 @@ $clientes = $cliente->obtenerTodosLosClientes();
                     <h1>Crear Entrada</h1>
                 </div>
                 <div class="card-body">
-                    <form action="create_sala.php" method="POST" class="form-row">
+                    <form action="create_entrada.php" method="POST" class="form-row">
                         <div class="form-group col-md-5">
                             <select name="id_funcion" class="form-control" required>
                                 <option value="">Seleccione Funcion</option>
@@ -95,8 +95,20 @@ $clientes = $cliente->obtenerTodosLosClientes();
                 <?php foreach ($entradas as $row): ?>
                     <tr>
                         <td class="text-white"><?= $row['id_entrada'] ?></td>
-                        <td class="text-white"><?= $row['id_funcion'] ?></td>
-                        <td class="text-white"><?= $row['id_cliente'] ?></td>
+                        <?php
+                            $funcion = new Funcion();
+                            $funcion_datos = $funcion->obtenerFuncionPorId($row['id_funcion']);
+                            $pelicula = new Pelicula();
+                            $pelicula_datos = $pelicula->obtenerPeliculaPorId($funcion_datos['id_pelicula']);
+                            $salas = new Sala();
+                            $salas_datos = $salas->obtenerSalaPorId($funcion_datos['id_sala']);
+                        ?>
+                        <td class="text-white"><?= $pelicula_datos['titulo']  . ' - ' .  $salas_datos['nombre_sala'] . ' - ' . $funcion_datos['fecha'] . ' - ' . $funcion_datos['hora'] . ' - ' . $funcion_datos['tipo_funcion'] . ' - ' . $funcion_datos['idioma'] ?></td>
+                        <?php
+                            $cliente = new Cliente();
+                            $cliente_datos = $cliente->obtenerClientePorId($row['id_cliente']);
+                        ?>
+                        <td class="text-white"><?= $cliente_datos['nombre']?></td>
                         <td class="text-white"><?= $row['cantidad'] ?></td>
                         <td class="text-white"><?= $row['precio_total'] ?></td>
                         <td class="text-white"><?= $row['fecha_compra'] ?></td>

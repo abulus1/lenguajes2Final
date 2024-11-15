@@ -14,17 +14,14 @@ include_once dirname(__FILE__) . '/../session.php';
           <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
-            <li><a href="<?= BASE_URL ?>index.php" class="active">Home</a></li>
-            <li><a href="<?= BASE_URL ?>#most-popular">Cartelera</a></li>
-            <li><a href="<?= BASE_URL ?>#gaming-library">Funciones</a></li>
-
             <?php if (isset($_SESSION['email'])): ?>
               <!-- Opciones exclusivas para usuarios logueados -->
-              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_peliculas/index.php">Peliculas</a></li>
-              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_funciones/index.php">Funciones</a></li>
-              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_clientes/index.php">Clientes</a></li>
-              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_salas/index.php">Salas</a></li>
-              <li class="admin-option"><a href="<?= BASE_URL ?>views/crud_entradas/index.php">Entradas</a></li>
+              <li><a href="<?= BASE_URL ?>index.php" class="active">Home</a></li>
+              <li><a href="<?= BASE_URL ?>views/crud_peliculas/index.php">Peliculas</a></li>
+              <li><a href="<?= BASE_URL ?>views/crud_funciones/index.php">Funciones</a></li>
+              <li><a href="<?= BASE_URL ?>views/crud_clientes/index.php">Clientes</a></li>
+              <li><a href="<?= BASE_URL ?>views/crud_salas/index.php">Salas</a></li>
+              <li><a href="<?= BASE_URL ?>views/crud_entradas/index.php">Entradas</a></li>
               <!-- Botón de cerrar sesión -->
               <li class="logout-option"><a href="<?= BASE_URL ?>views/login_register/logout.php">Cerrar sesión</a></li>
             <?php else: ?>
