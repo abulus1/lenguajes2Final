@@ -1,6 +1,6 @@
 <!-- header.php -->
 <?php
-$base_url = "http://localhost/lenguajes/";
+$base_url = "http://localhost/lenguajesfinal/";
 ?>
 <header class="header-area position-relative">
   <div class="container">
