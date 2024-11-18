@@ -156,7 +156,7 @@ body {
 }
 
 body .page-content {
-  margin-top: 110px;
+  margin-top: 50px;
   background-color: #27292a;
   padding: 60px;
 }
@@ -674,7 +674,6 @@ Header Style
     width: 100%;
   }
   .header-area {
-    background-color: #f7f7f7;
     padding: 0px 15px;
     height: 80px;
     box-shadow: none;
@@ -921,11 +920,6 @@ Gaming Library Style
 
 .gaming-library .item ul li:first-child {
   width: 110px;
-}
-
-.gaming-library .item ul li:last-child {
-  width: 15%;
-  text-align: right;
 }
 
 .gaming-library .item ul li h4 {

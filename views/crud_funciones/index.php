@@ -94,11 +94,11 @@ $salas = $sala->obtenerTodasLasSalas();
                     <thead class="thead-dark">
                         <tr>
                             <th>ID Función</th>
-                            <th>ID Película</th>
-                            <th>ID Sala</th>
+                            <th>Película</th>
+                            <th>Sala</th>
                             <th>Fecha</th>
                             <th>Hora</th>
-                            <th>Tipo de Función</th>
+                            <th>Formato</th>
                             <th>Idioma</th>
                             <th colspan="2">Acciones</th>
                         </tr>

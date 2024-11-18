@@ -16,7 +16,7 @@ include_once dirname(__FILE__) . '/../session.php';
           <ul class="nav">
             <?php if (isset($_SESSION['email'])): ?>
               <!-- Opciones exclusivas para usuarios logueados -->
-              <li><a href="<?= BASE_URL ?>index.php" class="active">Home</a></li>
+              <li><a href="<?= BASE_URL ?>index.php">Home</a></li>
               <li><a href="<?= BASE_URL ?>views/crud_peliculas/index.php">Peliculas</a></li>
               <li><a href="<?= BASE_URL ?>views/crud_funciones/index.php">Funciones</a></li>
               <li><a href="<?= BASE_URL ?>views/crud_clientes/index.php">Clientes</a></li>

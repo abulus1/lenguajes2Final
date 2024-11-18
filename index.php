@@ -61,7 +61,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                   <h6>Bienvenido a Cyborg</h6>
                   <h4><em>Disfruta</em> tus mejores estrenos acá</h4>
                   <div class="main-button">
-                    <a href="browse.html">Iniciar sesion</a>
+                    <a href="<?= BASE_URL ?>views/login_register/index.php">Iniciar sesion</a>
                   </div>
                 </div>
               </div>
@@ -95,11 +95,13 @@ https://templatemo.com/tm-579-cyborg-gaming
                       </div>
                     </div>
                   <?php endforeach; ?>
-                  <div class="col-lg-12">
-                    <div class="main-button">
-                      <a href="browse.html">Discover Popular</a>
+                  <?php if (isset($_SESSION['email'])): ?>
+                    <div class="col-lg-12">
+                      <div class="main-button">
+                        <a href="<?= BASE_URL ?>views/crud_peliculas/index.php">Agregar pelicula</a>
+                      </div>
                     </div>
-                  </div>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -120,7 +122,7 @@ https://templatemo.com/tm-579-cyborg-gaming
               ?>
               <?php foreach ($funciones as $row): ?>
                 <div class="item">
-                  <ul class="d-flex align-items-center justify-content-between spacing">
+                <ul class="d-flex align-items-center justify-content-around spacing">
                     <?php
                     $pelicula = new Pelicula();
                     $pelicula_datos = $pelicula->obtenerPeliculaPorId($row['id_pelicula']);
@@ -140,18 +142,17 @@ https://templatemo.com/tm-579-cyborg-gaming
                     <li>
                       <h4>Idioma</h4><span><?= $row['idioma'] ?></span>
                     </li>
-                    <li>
-                      <div class="main-border-button border-no-active"><a href="#">Ver</a></div>
-                    </li>
                   </ul>
                 </div>
               <?php endforeach; ?>
             </div>
-            <div class="col-lg-12">
-              <div class="main-button">
-                <a href="profile.html">View Your Library</a>
+            <?php if (isset($_SESSION['email'])): ?>
+              <div class="col-lg-12">
+                <div class="main-button">
+                  <a href="<?= BASE_URL ?>views/crud_funciones/index.php">Agregar Funcion</a>
+                </div>
               </div>
-            </div>
+            <?php endif; ?>
           </div>
           <!-- ***** Gaming Library End ***** -->
         </div>

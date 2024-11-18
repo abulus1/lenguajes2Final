@@ -30,7 +30,7 @@ $row = $pelicula->obtenerPeliculaPorId($id);
         <div class="container">
             <div class="card-template mb-4">
                 <div class="header-card">
-                    <h1>Crear Sala</h1>
+                    <h1>Editar pelicula</h1>
                 </div>
                 <div class="card-body">
                     <form action="edit_film.php" method="POST" class="form-row">

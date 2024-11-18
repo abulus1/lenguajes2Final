@@ -83,8 +83,8 @@ $clientes = $cliente->obtenerTodosLosClientes();
             <thead class="thead-dark">
                 <tr>
                     <th>ID Entrada</th>
-                    <th>ID Función</th>
-                    <th>ID Cliente</th>
+                    <th>Función</th>
+                    <th>Cliente</th>
                     <th>Cantidad</th>
                     <th>Precio Total</th>
                     <th>Fecha Compra</th>
