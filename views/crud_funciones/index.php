@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+if (!isset($_SESSION['email'])) {
+    header('Location: index.html');
+    exit;
+}
+
 include('Funcion.php');
 include('../crud_peliculas/Pelicula.php');
 include('../crud_salas/Sala.php');
@@ -20,7 +27,7 @@ $salas = $sala->obtenerTodasLasSalas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Funciones</title>
-
+    <link rel="icon" href="../../assets/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/css/fontawesome.css">
     <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css">
     <link rel="stylesheet" href="../../assets/css/owl.css">

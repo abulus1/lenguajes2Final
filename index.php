@@ -1,3 +1,6 @@
+<?php
+require_once dirname(__FILE__) . '/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +8,8 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="<?php BASE_URL ?>assets/logo.ico?>" type="image/x-icon">
+
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -122,7 +127,7 @@ https://templatemo.com/tm-579-cyborg-gaming
               ?>
               <?php foreach ($funciones as $row): ?>
                 <div class="item">
-                <ul class="d-flex align-items-center justify-content-around spacing">
+                  <ul class="d-flex align-items-center justify-content-around spacing">
                     <?php
                     $pelicula = new Pelicula();
                     $pelicula_datos = $pelicula->obtenerPeliculaPorId($row['id_pelicula']);

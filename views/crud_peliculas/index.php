@@ -7,11 +7,18 @@ if (!isset($_SESSION['email'])) {
     exit;
 }
 
-
 include('Pelicula.php');
+include('../genero/Genero.php');
+include('../clasificacion/Clasificacion.php');
 
 $pelicula = new Pelicula();
 $peliculas = $pelicula->obtenerTodasLasPeliculas();
+
+$genero = new Genero();
+$generos = $genero->obtenerTodosLosGeneros();
+
+$clasificacion = new Clasificacion();
+$clasificaciones = $clasificacion->obtenerTodasLasClasificaciones();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +28,7 @@ $peliculas = $pelicula->obtenerTodasLasPeliculas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crud Películas</title>
-
+    <link rel="icon" href="../../assets/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/css/fontawesome.css">
     <link rel="stylesheet" href="../../assets/css/templatemo-cyborg-gaming.css">
     <link rel="stylesheet" href="../../assets/css/owl.css">
@@ -56,13 +63,23 @@ $peliculas = $pelicula->obtenerTodasLasPeliculas();
                             <input type="text" name="director" placeholder="Director" class="form-control" required>
                         </div>
                         <div class="form-group col-md-4">
-                            <input type="text" name="genero" placeholder="Género" class="form-control" required>
+                            <select name="genero_id" class="form-control" required>
+                                <option value="">Seleccione un género</option>
+                                <?php foreach ($generos as $g): ?>
+                                    <option value="<?= $g['id_genero'] ?>"><?= $g['nombre'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group col-md-2">
                             <input type="number" name="duracion" placeholder="Duración" class="form-control" required>
                         </div>
                         <div class="form-group col-md-2">
-                            <input type="text" name="clasificacion" placeholder="Clasificación" class="form-control" required>
+                            <select name="clasificacion_id" class="form-control" required>
+                                <option value="">Seleccione una clasificación</option>
+                                <?php foreach ($clasificaciones as $c): ?>
+                                    <option value="<?= $c['id_clasificacion'] ?>"><?= $c['nombre'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group col-md-12">
                             <input type="text" name="imagen" placeholder="URL Imagen" class="form-control" required>

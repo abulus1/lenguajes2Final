@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $_SESSION['email'] = $loggedInUser['email'];
     $_SESSION['username'] = $loggedInUser['username'];
-    header('Location: ' . BASE_URL);
+    header('Location: ' . BASE_URL . 'index.php');
     exit;
   } else {
     $message = "Correo o contraseña incorrectos.";
