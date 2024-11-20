@@ -30,12 +30,12 @@ class Pelicula
     return $peliculas;
   }
 
-  public function crearPelicula($titulo, $descripcion, $director, $genero_id, $duracion, $clasificacion_id, $imagen)
+  public function crearPelicula($titulo, $descripcion, $director, $id_genero, $duracion, $id_clasificacion, $imagen)
   {
     $sql = "INSERT INTO peliculas_crud_php (titulo, descripcion, director, id_genero, duracion, id_clasificacion, imagen) 
             VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("ssssiss", $titulo, $descripcion, $director, $genero_id, $duracion, $clasificacion_id, $imagen);
+    $stmt->bind_param("ssssiss", $titulo, $descripcion, $director, $id_genero, $duracion, $id_clasificacion, $imagen);
     return $stmt->execute();
   }
 
@@ -55,13 +55,13 @@ class Pelicula
     return $result->fetch_assoc();
   }
 
-  public function actualizarPelicula($id, $titulo, $descripcion, $director, $genero_id, $duracion, $clasificacion_id, $imagen)
+  public function actualizarPelicula($id, $titulo, $descripcion, $director, $id_genero, $duracion, $id_clasificacion, $imagen)
   {
     $sql = "UPDATE peliculas_crud_php 
             SET titulo = ?, descripcion = ?, director = ?, id_genero = ?, duracion = ?, id_clasificacion = ?, imagen = ? 
             WHERE id_pelicula = ?";
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("sssisssi", $titulo, $descripcion, $director, $genero_id, $duracion, $clasificacion_id, $imagen, $id);
+    $stmt->bind_param("sssisssi", $titulo, $descripcion, $director, $id_genero, $duracion, $id_clasificacion, $imagen, $id);
     return $stmt->execute();
   }
 

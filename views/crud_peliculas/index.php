@@ -63,7 +63,7 @@ $clasificaciones = $clasificacion->obtenerTodasLasClasificaciones();
                             <input type="text" name="director" placeholder="Director" class="form-control" required>
                         </div>
                         <div class="form-group col-md-4">
-                            <select name="genero_id" class="form-control" required>
+                            <select name="genero" class="form-control" required>
                                 <option value="">Seleccione un género</option>
                                 <?php foreach ($generos as $g): ?>
                                     <option value="<?= $g['id_genero'] ?>"><?= $g['nombre'] ?></option>
@@ -74,7 +74,7 @@ $clasificaciones = $clasificacion->obtenerTodasLasClasificaciones();
                             <input type="number" name="duracion" placeholder="Duración" class="form-control" required>
                         </div>
                         <div class="form-group col-md-2">
-                            <select name="clasificacion_id" class="form-control" required>
+                            <select name="clasificacion" class="form-control" required>
                                 <option value="">Seleccione una clasificación</option>
                                 <?php foreach ($clasificaciones as $c): ?>
                                     <option value="<?= $c['id_clasificacion'] ?>"><?= $c['nombre'] ?></option>
