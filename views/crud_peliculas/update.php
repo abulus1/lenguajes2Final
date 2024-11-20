@@ -1,9 +1,17 @@
 <?php
 include('Pelicula.php');
+include('../genero/Genero.php');
+include('../clasificacion/Clasificacion.php');
 
 $id = $_GET['id'];
 $pelicula = new Pelicula();
 $row = $pelicula->obtenerPeliculaPorId($id);
+
+$genero = new Genero();
+$generos = $genero->obtenerTodosLosGeneros();
+
+$clasificacion = new Clasificacion();
+$clasificaciones = $clasificacion->obtenerTodasLasClasificaciones();
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +53,23 @@ $row = $pelicula->obtenerPeliculaPorId($id);
                             <input type="text" name="director" placeholder="DIRECTOR" class="form-control" value="<?php echo $row['director'] ?>">
                         </div>
                         <div class="form-group col-md-4">
-                            <input type="text" name="genero" placeholder="GENERO" class="form-control" value="<?php echo $row['genero'] ?>">
+                            <select name="genero" class="form-control" required>
+                                <option value="">Seleccione un género</option>
+                                <?php foreach ($generos as $g): ?>
+                                    <option value="<?= $g['id_genero'] ?>" <?= $g['id_genero'] == $row['id_genero'] ? 'selected' : '' ?>><?= $g['nombre'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group col-md-2">
                             <input type="text" name="duracion" placeholder="DURACION" class="form-control" value="<?php echo $row['duracion'] ?>">
                         </div>
                         <div class="form-group col-md-2">
-                            <input type="text" name="clasificacion" placeholder="CLASIFICACION" class="form-control" value="<?php echo $row['clasificacion'] ?>">
+                            <select name="clasificacion" class="form-control" required>
+                                <option value="">Seleccione una clasificación</option>
+                                <?php foreach ($clasificaciones as $c): ?>
+                                    <option value="<?= $c['id_clasificacion'] ?>" <?= $c['id_clasificacion'] == $row['id_clasificacion'] ? 'selected' : '' ?>><?= $c['nombre'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group col-md-12">
                             <input type="text" name="imagen" placeholder="IMAGEN" class="form-control" value="<?php echo $row['imagen'] ?>">

@@ -18,7 +18,8 @@ class Pelicula
                    g.nombre AS genero, c.nombre AS clasificacion, p.imagen
             FROM peliculas_crud_php p
             JOIN generos g ON p.id_genero = g.id_genero
-            JOIN clasificaciones c ON p.id_clasificacion = c.id_clasificacion";
+            JOIN clasificaciones c ON p.id_clasificacion = c.id_clasificacion
+            ORDER BY p.id_pelicula ASC";
     $result = $this->con->query($sql);
     $peliculas = [];
 
