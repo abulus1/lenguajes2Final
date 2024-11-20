@@ -14,6 +14,7 @@ $clientes = $cliente->obtenerTodosLosClientes();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,23 @@ $clientes = $cliente->obtenerTodosLosClientes();
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
+
+    <?php if (isset($_GET['success'])): ?>
+        <div class="alert alert-success">Cliente eliminado correctamente.</div>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['error']) && $_GET['error'] == '1'): ?>
+        <div class="alert alert-danger">Hubo un error al intentar eliminar el cliente. Inténtalo nuevamente.</div>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'foreign_key'): ?>
+        <div class="alert alert-warning">
+            No se puede eliminar este cliente porque está asociado a otras entradas.
+        </div>
+    <?php endif; ?>
+
     <?php include('../../components/header.php'); ?>
 
     <div class="page-content mt-0">
